@@ -1,2 +1,2 @@
-# TimesNet
+# MSTNet
 MRI+EEG+Table

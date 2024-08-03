@@ -1,2 +1,0 @@
-# MSTNet
-MRI+EEG+Table

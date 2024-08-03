@@ -1,10 +1,10 @@
 # MTSNet
 
 We propose an automatic PE segmentation method called SCUNet++ (Swin Conv UNet++). This method incorporates multiple fusion dense skip connections between the encoder and decoder, utilizing the Swin Transformer as the encoder.
-![image](img/SCUnet++.png)
+![image](img/model.png)
 
 Comparison of segmentation performance of different network models on the CAD-PE dataset: (a) input image; (b) ground truth mask; (c) the proposed SCUNet++ model; (d) UNet++ model; (e) UNet model; (f) Swin-UNet model; and (g) ResD-UNet model.
-![Comparison](img/Comparison.png)
+![Comparison](img/module.png)
 
 ## 1. Download pre-trained swin transformer model (Swin-T)
 
@@ -32,12 +32,5 @@ Download link is available at [https://drive.google.com/file/d/1hOmQ9s8eE__nqIe3
 ## 5. Citation
 
 ```
-@InProceedings{Chen_2024_WACV,
-    author    = {Chen, Yifei and Zou, Binfeng and Guo, Zhaoxin and Huang, Yiyu and Huang, Yifan and Qin, Feiwei and Li, Qinhai and Wang, Changmiao},
-    title     = {SCUNet++: Swin-UNet and CNN Bottleneck Hybrid Architecture With Multi-Fusion Dense Skip Connection for Pulmonary Embolism CT Image Segmentation},
-    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
-    month     = {January},
-    year      = {2024},
-    pages     = {7759-7767}
-}
+Yifei Chen
 ```

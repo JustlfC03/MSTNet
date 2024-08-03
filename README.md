@@ -1,10 +1,10 @@
 # MSTNet
 
 We propose an automatic PE segmentation method called SCUNet++ (Swin Conv UNet++). This method incorporates multiple fusion dense skip connections between the encoder and decoder, utilizing the Swin Transformer as the encoder.
-![image](img/model.png)
+![image](img/model1.png)
 
 Comparison of segmentation performance of different network models on the CAD-PE dataset: (a) input image; (b) ground truth mask; (c) the proposed SCUNet++ model; (d) UNet++ model; (e) UNet model; (f) Swin-UNet model; and (g) ResD-UNet model.
-![Comparison](img/module.png)
+![Comparison](img/module1.png)
 
 ## 1. Download pre-trained swin transformer model (Swin-T)
 

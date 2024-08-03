@@ -32,5 +32,12 @@ Download link is available at [https://drive.google.com/file/d/1hOmQ9s8eE__nqIe3
 ## 5. Citation
 
 ```
-Yifei Chen
+@InProceedings{Chen_2024_WACV,
+    author    = {Chen, Yifei and Zou, Binfeng and Guo, Zhaoxin and Huang, Yiyu and Huang, Yifan and Qin, Feiwei and Li, Qinhai and Wang, Changmiao},
+    title     = {SCUNet++: Swin-UNet and CNN Bottleneck Hybrid Architecture With Multi-Fusion Dense Skip Connection for Pulmonary Embolism CT Image Segmentation},
+    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {January},
+    year      = {2024},
+    pages     = {7759-7767}
+}
 ```

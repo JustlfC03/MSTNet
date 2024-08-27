@@ -9,22 +9,23 @@ Comparison of segmentation performance of different network models on the CAD-PE
 ## 1. Dataset
 
 - Place the dataset in the main folder with the following folder structure for the dataset：
-    datasets/
-    ├── Table/
-    │   ├── train.xlsx
-    │   └── test.xlsx
-    ├── Image/
-    │   ├── train/
-    │   └── test/
-    ├── EEG/
-    │   ├── train/
-    │   │   ├── MCI/
-    │   │   ├── HC/
-    │   │   ├── AD/
-    │   └── test/
-    │   │   ├── MCI/
-    │   │   ├── HC/
-    │   │   ├── AD/
+datasets/
+├── Table/
+│   ├── train.xlsx
+│   └── test.xlsx
+├── Image/
+│   ├── train/
+│   └── test/
+└── EEG/
+    ├── train/
+    │   ├── MCI/
+    │   ├── HC/
+    │   └── AD/
+    └── test/
+        ├── MCI/
+        ├── HC/
+        └── AD/
+
 
 ## 2. Environment
 

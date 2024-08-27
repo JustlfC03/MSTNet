@@ -1,0 +1,2 @@
+pip install 'monai[all]'
+pip install monai,scipy,torchmetrics,transformers

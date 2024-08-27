@@ -239,7 +239,7 @@ class EEGFeatureExtractor(nn.Module):
         self.pool4 = nn.MaxPool1d(kernel_size=2, stride=2)  # 输出形状: (3, 32, 180)
 
         # 使用线性层将特征扩展到512
-        self.fc = nn.Linear(180 * 32, 512 * 32)  # 输入大小为 32 * 180，输出大小为 32 * 512
+        self.fc = nn.Linear(3840, 512 * 32)  # 输入大小为 32 * 180，输出大小为 32 * 512
 
     def forward(self, x):
         x = self.conv1(x)  # (3, 64, 23040)
@@ -306,10 +306,10 @@ class Model(nn.Module):
             num_continuous=configs.num_cont,  # number of continuous values
             dim=32,  # dimension, paper set at 32
             dim_out=16,  # binary prediction, but could be anything
-            depth=6,  # depth, paper recommended 6
-            heads=8,  # heads, paper recommends 8
-            attn_dropout=0.1,  # post-attention dropout
-            ff_dropout=0.1  # feed forward dropout
+            depth=1,  # depth, paper recommended 6
+            heads=2,  # heads, paper recommends 8
+            attn_dropout=0.2,  # post-attention dropout
+            ff_dropout=0.2  # feed forward dropout
         )
         # 修改：
         # self.clinical_encoder = ClinicalEncoder(numeric_input_dim=configs.numeric_input_dim,
@@ -320,6 +320,8 @@ class Model(nn.Module):
         self.aggregator = MultimodalAggregator(hidden_dim=configs.hidden_dim)
 
         self.eeg_model = EEGFeatureExtractor()
+
+        self.attAbl = nn.Linear(512*32*4*4, 16*32*4*4)
 
     def classification(self, x_enc, numeric_input, categorical_input, image_input, x_mark_enc):
         # embedding
@@ -355,15 +357,21 @@ class Model(nn.Module):
         new_output = new_output.repeat(1, C // output_shape_d_model, 1, 1, 1)  # (3, 256, 32, 4, 4)
         # output = output[..., None, None].repeat(1, (C // 2) // output_shape_seq_length, D // output_shape_d_model, H, W)
 
+        # f_vom = torch.cat((new_output,
+        #                    image_features),
+        #                   dim=1)  # (3, 512, 32, 4, 4)
         f_vom = torch.cat((new_output,
                            image_features),
-                          dim=1)  # (3, 512, 32, 4, 4)
+                          dim=1)
 
         # Apply visual-text attention mechanism(img+eeg)
-        f_hat_vom = self.spatial_temporal_attention(new_output, image_features)  # (3, 256, 32, 4, 4)
-
+        # f_hat_vom = self.spatial_temporal_attention(new_output, image_features)  # (3, 256, 32, 4, 4)
+        f_hat_vom = self.spatial_temporal_attention(new_output, image_features)
         # Aggregate features from different modalities(img+eeg)
         aggregated_features = self.aggregator(f_vom, f_hat_vom)  # (3, 16, 32, 4, 4)
+
+        #attention abla
+        # aggregated_features = self.attAbl(f_vom.reshape(f_vom.shape[0], -1))
 
         img_eeg_features = aggregated_features.reshape(aggregated_features.shape[0], -1)
         # print(img_eeg_features.shape)
@@ -384,7 +392,8 @@ class Model(nn.Module):
         # print(table_feature.shape)
         # print(type(table_feature))
         # print(table_feature)
-        final_features = torch.cat((stand_img_eeg_features, table_feature), dim=1)  # 在列方向拼接
+        # final_features = torch.cat((stand_img_eeg_features, table_feature), dim=1)  # 在列方向拼接
+        final_features = torch.cat((stand_img_eeg_features, table_feature), dim=1)
         # print(final_features.shape)
         final_features = self.projection4(final_features)  # (batch_size, num_classes)
 

@@ -81,7 +81,7 @@ class UEAloader(Dataset):
         # self.mri_nii = glob.glob(join(image_path, '*.nii.gz'))
         image_path=os.path.abspath(image_path)
         # print(self.image_table_paths)
-        self.mri_nii = [glob.glob(os.path.join(image_path, f"{name}.nii.gz")) for name in self.image_table_paths]
+        self.mri_nii = [glob.glob(os.path.join(image_path, f"{name.split('/')[-1]}.nii.gz")) for name in self.image_table_paths]
         self.start_transformer = LoadImaged(keys=['image'])
         desired_shape = (256, 32, 32)
         self.transformer = Compose(
@@ -99,8 +99,8 @@ class UEAloader(Dataset):
         # df = pd.read_excel(excel_file, usecols=lambda x: (x != 0 and x != 'number' and x != 'label'))
         df= pd.read_excel(excel_file)
         # Separate the number column for later use and drop label
-        self.number_to_index = {row['number']: idx for idx, row in df.iterrows()}
-        df = df.drop(columns=['number', 'label'])
+        self.number_to_index = {row['NUMBER']: idx for idx, row in df.iterrows()}
+        df = df.drop(columns=['NUMBER', 'NAME'])
 
         numeric_columns = []
         categorical_columns = []
@@ -194,6 +194,10 @@ class UEAloader(Dataset):
 
         df_index = [i for i, x in enumerate(df_lengths) for _ in range(x)]
 
+        # Generate new df_lengths and df_index after subsample
+        df_lengths = [len(x) for x in df_list]
+        df_index = [i for i, x in enumerate(df_lengths) for _ in range(x)]
+
         df = pd.concat(df_list).reset_index(drop=True).set_index(
             pd.Series(df_index)
         )
@@ -217,7 +221,6 @@ class UEAloader(Dataset):
     def __getitem__(self, ind):
         # print(ind)
         mri_path = self.mri_nii[ind]
-        # print(mri_path)
         batch = self.start_transformer(dict(image=mri_path))
         batch['image'] = adaptive_normal(batch['image'])
         batch = self.transformer(batch)

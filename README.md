@@ -6,28 +6,38 @@ We propose an automatic PE segmentation method called SCUNet++ (Swin Conv UNet++
 Comparison of segmentation performance of different network models on the CAD-PE dataset: (a) input image; (b) ground truth mask; (c) the proposed SCUNet++ model; (d) UNet++ model; (e) UNet model; (f) Swin-UNet model; and (g) ResD-UNet model.
 ![Comparison](img/module.png)
 
-## 1. Download pre-trained swin transformer model (Swin-T)
+## 1. Dataset
 
-* [Get pre-trained model in this link] (https://drive.google.com/drive/folders/1UC3XOoezeum0uck4KBVGa8osahs6rKUY?usp=sharing): Put pretrained Swin-T into folder "pretrained_ckpt/"
+- Place the dataset in the main folder with the following folder structure for the dataset：
+    datasets/
+    ├── Table/
+    │   ├── train.xlsx
+    │   └── test.xlsx
+    ├── Image/
+    │   ├── train/
+    │   └── test/
+    ├── EEG/
+    │   ├── train/
+    │   │   ├── MCI/
+    │   │   ├── HC/
+    │   │   ├── AD/
+    │   └── test/
+    │   │   ├── MCI/
+    │   │   ├── HC/
+    │   │   ├── AD/
 
 ## 2. Environment
 
-- Please prepare an environment with python=3.7, and then use the command "pip install -r requirements.txt" for the dependencies.
+- Please prepare an environment with python=3.8, and then use the command "pip install -r requirements.txt" for the dependencies.
 
 ## 3. Train/Test
 
-- Run lists/lists_Synapse/tool.py to Generate txt file
-- Run train.py to Train (Put the dataset in npz format into datasets/Synapse/train_npz)
--  Run test.py to Test (Put the dataset in npz format into datasets/test)
-- The batch size we used is 24. If you do not have enough GPU memory, the bacth size can be reduced to 12 or 6 to save memory.
+- Run run.py to Train or test(Put the MRI dataset in nii.gz format into datasets/Image and the EEG dataset in .csv format into datasets/EEG)
+- The batch size we used is 20. If you do not have enough GPU memory, the bacth size can be reduced to 12 or 6 to save memory.
 
-## 4. New FUMPE dataset
+## 4. New xx dataset
 
-Upon review, we find significant errors and deviations in the original dataset annotations. So, we reannotated these datasets to ensure accuracy.
-We have uploaded the link for downloading the new FUMPE dataset to our GitHub repository, thereby providing other users with the ability to access and utilize it.
-If you want to use our relabelled dataset, please cite our article.
-
-Download link is available at [https://drive.google.com/file/d/1hOmQ9s8eE__nqIe3lpwGYoydR4_UNRrU/view?usp=drive_link](https://drive.google.com/file/d/1hOmQ9s8eE__nqIe3lpwGYoydR4_UNRrU/view?usp=drive_link).
+- Our experiments were conducted on the xx dataset, which comprises EEG, MRI, and scale data from 100 subjects (mean age: 72.4 years; age range: 56-93 years; 56 females; 22 married). For each patient, the dataset includes a continuous 180-second artifact-free EEG segment recorded at a sampling frequency of 256 Hz, and 72 MRI slices with dimensions of 256×256 pixels. Additionally, the scale data includes MMSE and MoCA scores, with detailed MMSE results providing both a total score and individual item scores. The dataset is divided into 80 samples for training and 20 samples for evaluation.
 
 ## 5. Citation
 

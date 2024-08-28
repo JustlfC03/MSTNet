@@ -3,7 +3,7 @@
 Overall structure of our proposed MSTNet. The MSTNet model primarily comprises three parts: Tabular Feature Encoder, Temporal Feature Encoder and Cross-modal Aggregation Encoder.
 ![image](img/model.png)
 
-Comparison of segmentation performance of different network models on the CAD-PE dataset: (a) input image; (b) ground truth mask; (c) the proposed SCUNet++ model; (d) UNet++ model; (e) UNet model; (f) Swin-UNet model; and (g) ResD-UNet model.
+(a) The detail of Feature Tokenizer. The primary function of the feature tokenizer is to convert numerical categorical features into embedding vectors. (b) The detail of TimesNet Block. The TimesNet Block module effectively models complex temporal patterns by performing a 2D transformation on the multi-periodic features of the time-series data.
 ![Comparison](img/module.png)
 
 ## 1. Dataset

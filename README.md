@@ -27,7 +27,7 @@ datasets/
         ├── HC/
         └── AD/
 `````
-- The file names of the EEG and MRI of the same patient need to be consistent, while the Tabel information of all patients is saved in a `.xslx` file, and the first column `number` in the `.xslx` file also needs to be consistent with the corresponding EEG/MRI file name.
+- The file names of the EEG and MRI of the same patient need to be consistent, while the Scale/Table information of all patients is saved in a `.xslx` file, and the first column `number` in the `.xslx` file also needs to be consistent with the corresponding EEG/MRI file name.
 
 ## 2. Environment
 

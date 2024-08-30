@@ -45,12 +45,13 @@ datasets/
 ## 5. Citation
 
 ```
-@InProceedings{Chen_2024_WACV,
-    author    = {Chen, Yifei and Zou, Binfeng and Guo, Zhaoxin and Huang, Yiyu and Huang, Yifan and Qin, Feiwei and Li, Qinhai and Wang, Changmiao},
-    title     = {SCUNet++: Swin-UNet and CNN Bottleneck Hybrid Architecture With Multi-Fusion Dense Skip Connection for Pulmonary Embolism CT Image Segmentation},
-    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
-    month     = {January},
-    year      = {2024},
-    pages     = {7759-7767}
+@misc{chen2024robustearlydetectionalzheimers,
+      title={Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach}, 
+      author={Yifei Chen and Shenghao Zhu and Zhaojie Fang and Chang Liu and Binfeng Zou and Yuhe Wang and Shuo Chang and Fan Jia and Feiwei Qin and Jin Fan and Yong Peng and Changmiao Wang},
+      year={2024},
+      eprint={2408.16343},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2408.16343}, 
 }
 ```

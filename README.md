@@ -45,13 +45,10 @@ datasets/
 ## 5. Citation
 
 ```
-@misc{chen2024robustearlydetectionalzheimers,
-      title={Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach}, 
-      author={Yifei Chen and Shenghao Zhu and Zhaojie Fang and Chang Liu and Binfeng Zou and Yuhe Wang and Shuo Chang and Fan Jia and Feiwei Qin and Jin Fan and Yong Peng and Changmiao Wang},
-      year={2024},
-      eprint={2408.16343},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2408.16343}, 
+@article{chen2024toward,
+  title={Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach},
+  author={Chen, Yifei and Zhu, Shenghao and Fang, Zhaojie and Liu, Chang and Zou, Binfeng and Wang, Yuhe and Chang, Shuo and Jia, Fan and Qin, Feiwei and Fan, Jin and others},
+  journal={arXiv preprint arXiv:2408.16343},
+  year={2024}
 }
 ```

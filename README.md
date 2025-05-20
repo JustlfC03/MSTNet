@@ -45,10 +45,12 @@ datasets/
 ## 5. Citation
 
 ```
-@article{chen2024toward,
-  title={Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach},
-  author={Chen, Yifei and Zhu, Shenghao and Fang, Zhaojie and Liu, Chang and Zou, Binfeng and Wang, Yuhe and Chang, Shuo and Jia, Fan and Qin, Feiwei and Fan, Jin and others},
-  journal={arXiv preprint arXiv:2408.16343},
-  year={2024}
+@inproceedings{chen2025toward,
+  title={Toward robust early detection of alzheimer’s disease via an integrated multimodal learning approach},
+  author={Chen, Yifei and Zhu, Shenghao and Fang, Zhaojie and Liu, Chang and Zou, Binfeng and Qiu, Linwei and Wang, Yuhe and Chang, Shuo and Jia, Fan and Qin, Feiwei and others},
+  booktitle={ICASSP 2025-2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={1--5},
+  year={2025},
+  organization={IEEE}
 }
 ```
